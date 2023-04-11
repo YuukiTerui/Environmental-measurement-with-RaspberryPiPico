@@ -1,4 +1,4 @@
-# RaspberryPi-Pico-Environmental-measurement
+# Environmental-measurement-RaspberryPiPico
 Measure carbon dioxide concentration, temperature, and humidity in the air using a Raspberry Pi Pico.
 
 ## Installation
