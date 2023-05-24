@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 
-/driver_path.txt
+/data/*.csv
