@@ -83,8 +83,9 @@ class App:
         self.timer = Timer()
         self.timer.init(
             mode=Timer.PERIODIC,
-            period=4000,
+            period=10000,
             callback=self.update
         )
+    
 
 
