@@ -6,7 +6,7 @@ from serial.tools import list_ports
 
 class EnvMeasurementPico:
     def __init__(self, ):
-        self.port = 'dev/ttyACM0'
+        self.port = '/dev/ttyACM0'
         self.baudrate = 9600
         self.timeout = 3
         self.serial = None
@@ -30,11 +30,15 @@ class EnvMeasurementPico:
     
     def set_timeout(self, timeout):
         self.timeout = timeout
-    
+
+    def init(self):
+        self.serial.flush()
+
     def run(self):
         if self.serial is None:
             print('serial is None')
             return
+        self.init()
         print(f'running at {self.port}')
         self.is_running = True
         while self.is_running:
@@ -43,7 +47,7 @@ class EnvMeasurementPico:
                 continue
             t = datetime.now().strftime('%H:%M:%S')
             self.buffer.append([t, *line])
-            print(line)
+            print(self.buffer[-1])
             time.sleep(self.interval)
     
     def stop(self):
