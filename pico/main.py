@@ -4,12 +4,12 @@ from lib.app import App
 
 
 def main():
-    utime.sleep(30)
+    #utime.sleep(30)
     app = App()
     app.run()
     utime.sleep(10)
     
-    #test(app)
+    test_tmp_humid(app)
     interval = 10
     while True:
         t = app.temperature
@@ -20,7 +20,12 @@ def main():
         utime.sleep(interval)
     
     
-    
+def test_tmp_humid(app):
+    while True:
+        t = app.temperature
+        h = app.humidity
+        print(t, h)
+        utime.sleep(2)
     
 def test(app):
     while True:

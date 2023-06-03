@@ -32,7 +32,11 @@ class EnvMeasurementPico:
         self.timeout = timeout
 
     def init(self):
-        self.serial.flush()
+        while True:
+            line = self.measure()
+            print(line)
+            if  line == []:
+                break
 
     def run(self):
         if self.serial is None:
@@ -43,7 +47,7 @@ class EnvMeasurementPico:
         self.is_running = True
         while self.is_running:
             line = self.measure()
-            if line is None:
+            if line == []:
                 continue
             t = datetime.now().strftime('%H:%M:%S')
             self.buffer.append([t, *line])
