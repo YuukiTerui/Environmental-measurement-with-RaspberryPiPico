@@ -64,7 +64,7 @@ class DHT11:
         #utime.sleep_ms(50)
         utime.sleep_ms(250)
         self._pin.value(0)
-        utime.sleep_ms(18)
+        utime.sleep_ms(20)
 
     @micropython.native
     def _capture_pulses(self):
